@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<!--
+<i class="fas fa-caret-square-up"></i> maximise
+<i class="far fa-window-minimize"></i> Minimise
+<i class="far fa-star"></i> star (empty)
+<i class="fas fa-star"></i> (full)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>Les vagabonds</title>
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=MedievalSharp&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/47486d5adf.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<!--Barre d'onglets -->
+	<nav>
+		<button class="navbtn" onclick="openPage('TeamTab', this, '#006c7d')">Création de groupe</button>
+
+		<button class="navbtn" onclick="openPage('MapTab', this, '#006c7d')" id="defaultOpen">Carte du monde</button>
+
+		<button class="navbtn" onclick="openPage('LoreTab', this, '#006c7d')">Documentation</button>
+
+		<button class="navbtn" onclick="openPage('NameTab', this, '#006c7d')">Banque de noms</button>
+
+		<!-- Onglet Drive  -->
+		<a href="https://docs.google.com/document/d/16uBW6VpfEiaMDsxYm-adQaknWaYl4gnm_CauIRvEVzI/edit?usp=sharing" target="_blank" class="navbtn">Drive -></a>
+	</nav>
+	<!--Fin Barre d'onglets-->
+
+
+	<!-- Onglet Map -->
+	<div id="MapTab" class="mainscreen">
+		<article>
+
+			<img id="Map" src="images/map03.png" alt="La carte du monde, une grille definit différents lieux">
+		</article>
+	</div>
+
+
+	<!-- Onglet Team -->
+	<div id="TeamTab" class="mainscreen">
+		<article>
+
+			<p> 1 - Choix des archétypes</p>
+			<button class="rand_b" id="b_randChar" onload="Start()"> Archétypes aleatoires </button>
+			<br />
+			<div class="interaction">
+				<p> 2 - Choisissez un personnage parmis ceux proposés </p>
+				<img class="select_pic" id="selectPic01" src="images/0-A.png" alt="Personnage selectionnable 1" onclick="flipCard(0)">
+				<img class="select_pic" id="selectPic02" src="images/0-A.png" alt="Personnage selectionnable 2" onclick="flipCard(1)">
+				<img class="select_pic" id="selectPic03" src="images/0-A.png" alt="Personnage selectionnable 3" onclick="flipCard(2)">
+				<br />
+				<button class='select_b' id="b_select01" onclick="buttonSelectLobby(0)">Choisir ce personnage</button>
+				<button class='select_b' id="b_select02" onclick="buttonSelectLobby(1)">Choisir ce personnage</button>
+				<button class='select_b' id="b_select03" onclick="buttonSelectLobby(2)">Choisir ce personnage</button>
+			</div>
+		</article>
+	</div>
+
+
+	<!--Onglet Lore-->
+	<div id="LoreTab" class="mainscreen">
+		<aside class="lore-nav">
+			<p><a href="#pj">Création de personnage </a>
+				-
+				<a href="#systeme"> Utiliser le Système </a>
+				-
+				<a href="#contexte"> Contexte </a>
+				-
+				<a href="#systeme"> Histoire du pays </a>
+				-
+				<a href="#clans"> Les clans</a>
+			</p>
+		</aside>
+		<br />
+		<section class="lore-post">
+			<article>
+				<br />
+				<details>
+					<summary id="pj">Création de personnage</summary>
+					<h2>Création de la fiche</h2>
+					<p>Le joueur répartit 5 points entre les 3 stats (Corps, esprit et social) présentes sur la fiche (entre 3 et 1)
+						<br />
+						Il choisit deux compétences ainsi qu'une spécialité.
+						Il commence avec une arme et une armure d'une classe égale ou inférieur à sa valeur de corps
+						<br />
+						<em>Si jamais les joueurs manquent d'idées, vous pouvez lancez un D80 pour obtenir un personnage sur la table des archétypes., des cartes explicatives sont fournies en fin d'ouvrage.</em> </p>
+					<details>
+						<summary>Table des rôles</summary>
+						<table>
+							<caption><button class="fav-button" onclick="toggleDisplay('role')"><i class="far fa-star" id="fav-role" style="font-size:20px;"></i></button>Ajouter / Supprimer cette table des favoris</caption>
+							<tr>
+								<th>2D6</th>
+								<th>Rôle</th>
+								<th>But</th>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>La Purification</td>
+								<td>
+									Votre dieu a abandonné vos terres, vous êtes là pour chasser le mal.
+								</td>
+							</tr>
+							<tr>
+								<td>
+									3
+								</td>
+								<td>L'infiltré</td>
+								<td>
+									Vous avez en votre possession des informations cruciales qui pourrait faire chuter l'organisation que vous avez infiltré. <strong>Attention</strong> : vos compagnons ne doivent pas en prendre connaissance de votre mission!
+								</td>
+							</tr>
+							<tr>
+								<td>
+									4
+								</td>
+								<td>L'exil</td>
+								<td>
+									Vous fuyez votre foyer désormais votre conception du monde est bouleversée. <strong>Attention</strong> : vous avez été exilé suite à un acte très grave !
+								</td>
+							</tr>
+							<tr>
+								<td>
+									5
+								</td>
+								<td>Le réfugié</td>
+								<td>
+									Votre foyer est détruit, vous n'avez plus d'endroit où aller. Vous cherchez un endroit où vous établir.
+								</td>
+							</tr>
+							<tr>
+								<td>
+									6
+								</td>
+								<td>Le protecteur</td>
+								<td>
+									Vous parcourez le pays pour défendre les autres du mal.
+								</td>
+							</tr>
+							<tr>
+								<td>
+									7
+								</td>
+								<td>Le voleur</td>
+								<td>
+									Vous infiltrez les groupes de voyageurs pour leur dérober leurs biens avant de les laisser sur place.
+								</td>
+							</tr>
+							<tr>
+								<td>
+									8
+								</td>
+								<td>Le marchand</td>
+								<td>
+									Vous vendez des babioles et/ou signez des contrats commerciaux à travers le pays.
+								</td>
+							</tr>
+							<tr>
+								<td>
+									9
+								</td>
+								<td>Le chasseur de prime</td>
+								<td>
+									Vous traquez les criminels à travers le pays pour les vendre à la justice. <strong>Attention</strong> : cette activité est souvent mal vue, vous passez pour un opportuniste sans humanité.
+								</td>
+							</tr>
+							<tr>
+								<td>
+									10
+								</td>
+								<td>Le cultiste</td>
+								<td>
+									Dans le Sud,, vous avez été témoin de choses que l'esprit humain ne devrait jamais voir. Depuis vous vous êtes tourné vers de nouvelle divinités et vous cherchez des voyageurs à sacrifier pour ces dernières. <strong>Attention</strong> : de telles actions sont punies de mort.
+								</td>
+							</tr>
+							<tr>
+								<td>
+									11
+								</td>
+								<td>La visite diplomatique</td>
+								<td>
+									Vous souhaitez rendre visite à un seigneur pour le convier à une fête destinée à célébrer un évènement heureux.
+								</td>
+							</tr>
+							<tr>
+								<td>
+									12
+								</td>
+								<td>Le proche malade</td>
+								<td>
+									Une personne proche est gravement malade, vous devez lui apporter des médicaments. Vous aurez peut-être à voler pour les obtenir.
+								</td>
+							</tr>
+
+						</table>
+
+					</details>
+				</details>
+			</article>
+			<article>
+				<details>
+					<summary id="systeme">Utiliser le Système</summary>
+					<p>Le joueur commence avec un <strong>stock de 3D6</strong> qu'il utilise tout au long de la partie.<br />
+						Lors des test on lance le nombre de dés égale à la valeur dans la compétence en question et le joueur choisi le dé qu'il préfère.<br />
+						Un joueur ne peut utiliser que les dés présents dans son stock.
+					</p>
+					<table class="big">
+						<caption><button class="fav-button" onclick="toggleDisplay('test')"><i style="font-size:20px;" class="far fa-star" id="fav-test"></i></button> Ajouter / Supprimer cette table des favoris</caption>
+						<tr>
+							<th>Difficulté du test</th>
+							<th class="big-th">Résultats attendus</th>
+						</tr>
+						<tr>
+							<td>Très Dur</td>
+							<td>6</td>
+						</tr>
+						<tr>
+							<td>Assez Dur</td>
+							<td>5+</td>
+						</tr>
+						<tr>
+							<td>Moyen</td>
+							<td>4+</td>
+						</tr>
+						<tr>
+							<td>Facile</td>
+							<td>3+</td>
+						</tr>
+
+					</table>
+
+					<p><strong>La spécialité du personnage</strong> lui permet de baisser d'un cran la difficulté des test à faire dans ce domaine.</p>
+					<details>
+						<summary>Les menaces</summary>
+						<p>Lorsqu'un joueur subit une altération d'état, il place un dé de son stock sur la case correspondante, ce dé n'est plus utilisable tant que l'état n'est pas soigné.<br />
+							Les joueurs ne peuvent pas faire de réussite critiques, cependant ils peuvent faire des <strong>échecs critiques</strong> (le résultat final d'un test est égal à <strong>1</strong>) ce qui est souvent synonyme de <strong>mort</strong> pour le personnage.</p>
+
+						<p>Lorsqu'un personnage n'as <strong>plus dés</strong> dans son stock, il <strong>meurt</strong>.<br />
+							Lorsqu'un personnage subit une <strong>blessure</strong> alors qu'il est affecté par un <strong>état gris</strong>, il <strong>meurt</strong>.<br />
+							Lorsqu'un personnage est affecté par un <strong>état noir</strong>, il <strong>meurt</strong>.
+						</p>
+					</details>
+					<details>
+						<summary>Moduler la difficulté</summary>
+						<p>Certains échecs critiques ne sont pas létaux, cependant il peuvent entraîner un handicap immédiat et ponctuel, on appelle ça un <strong>désavantage</strong>.<br />
+							<strong>Désavantage</strong> : le meneur as un D6 qui peut utiliser lors d'un test. Lorsque le joueur a choisi le dé final de son test, le meneur peut lancer le D6 de désavantage et choisir un nouveau dé final entre son résultat et celui du joueur.</p>
+
+						<p>Dans d'autres cas, le handicap peut être <strong>plus long et très lourd</strong>. cet handicap peut être causé par une très <strong>grave maladie</strong> ou une <strong>ivresse avancé</strong>.<br />
+							Dans ce cas on peut annoncer que tous les résultats du joueur <strong>impairs</strong> sont des <strong>échecs automatiques</strong>. On peut faire la même chose pour les résultats <strong>pairs</strong> mais ce dernier cas est beaucoup plus grave , 1 étant déjà impair les dés ont 2 chances sur 3 de faire un echec critique.</p>
+
+						<p>Bien sur il est possible de faire l'inverse pour aider les joueurs mais cela rentre moins bien dans l'optique de ce jeu, tout dépends des joueurs que vous avez à votre table.</p>
+					</details>
+					<details>
+						<summary>Compétences possibles</summary>
+						<dl>
+							<dt>Amputation préventive :</dt>
+							<dd>Lorsque le personnage devrait subir une altération d'état non-combat, il peut choisir de perdre définitivement un dé de sa réserve à la place.</dd>
+							<dt>Bien portant :</dt>
+							<dd>Tant qu'il as tous ses D6 dans sa réserve, le personnage baisse d'un niveau la difficulté de ses tests de Social. </dd>
+							<dt>Dernière Chance (domaine) :</dt>
+							<dd>Lors d'un test dans le domaine précisé, le joueur peut relancer un dé qui ne le satisfait pas, mais il est obligé de le choisir comme dé final.</dd>
+							<dt>Dur à cuir :</dt>
+							<dd>Le personnage peut utiliser ses dés placés sur les etats blancs pour faire ses test de corps. </dd>
+							<dt>Effort surhumain:</dt>
+							<dd>Le personnage ajoute à son action de corps +2, en échange il s'inflige une altération d'état qu'il n'as pas déjà.</dd>
+							<dt>Énergie du désespoir :</dt>
+							<dd>Tant qu'il ne reste plus qu'un 1D6 dans sa réserve, le personnage baisse d'un niveau la difficulté de ses tests de Corps.</dd>
+							<dt>Jeune prodige:</dt>
+							<dd>Le personnage commence avec un point supplémentaire lors de la création de son personnage. Cependant lorsqu'il place un de ses dés de stock sur un état gris, le personnage meurt.</dd>
+							<dt>Médecine expérimentale :</dt>
+							<dd>Le personnage tente de prodiguer des soins, le personnage fait un test d'Esprit.
+								Regardez l'état qui correspond au résultat du test. Si un dé est présent sur cet état, remettez le dans la réserve, sinon mettez un dé de réserve dessus. Un résultat de 1, n'est pas un échec critique ici.<br />
+								<strong>Ex:</strong><em> Charles Katsuhiro tente de soigner jeanne miki, il fait un jet d'Esprit et choisi un dé avec un 2. Le 2ème état étant Blessure légère, jeanne remet dans sa réserve le dé qui s'y trouvais.</em></dd>
+							<dt>Porteur Sain :</dt>
+							<dd>Le personnage peut utiliser ses dés placés sur les etats gris ou blanc pour faire n'importe quel test autre que social. Ce personnage commence avec un dé de stock sur un état gris. </dd>
+							<dt>Protection divine :</dt>
+							<dd>Le personnage ne meurt pas lorsqu'il place un dé sur un état noir, mais il doit placer deux dés sur cet état à la place. </dd>
+							<dt>Régénération :</dt>
+							<dd>Une fois par jour, le personnage peut remplacer une altération d'état par une autre qu'il ne possède pas encore. Tous les deux jours, il peut soigner une altération d'état blanche à la place. </dd>
+							<dt>Transfusion médicale :</dt>
+							<dd>Le personnage peut donner un dé de son stock à un autre personnage. </dd>
+							<dt>Vétéran :</dt>
+							<dd>Le personnage commence avec un dé supplémentaire dans son stock mais ne dispose que de 4 points lors de la création de son personnage. </dd>
+						</dl>
+					</details>
+					<details>
+						<summary>Etats</summary>
+						<p>Lorsqu'un joueur est affecté par un état, ce dernier dispose un D6 de sa réserve dessus, cependant il doit mettre le chiffre 1 bien visible et ainsi faire augmenter le nombre chaque jours. De cette manière, tout le monde peut connaître l'avancement de son état.</p>
+
+						<p>Si un personnage commence avec une altération d'état:</p>
+						<ul>
+							<li> s'il doit la choisir il le fait</li>
+							<li> Il lance le D6 et garde le résultat ainsi obtenu.</li>
+						</ul>
+						<table></table>
+					</details>
+					<details>
+						<summary>Classes d'armes et d'armures et combat</summary>
+						<table></table>
+						<strong>Les personnages ne peuvent pas porter une armure ou une arme d'une classe plus élevée que leur score de corps !</strong><br />
+						<p>Lorsque deux personnages se battent, chacun met de côté un nombre de dés de stock égal au poid de son arme puis fait son test. En suite il ajoute. à son résultat un nombre de points égal à la somme de sa classe d'arme et de sa classe d'armure. On compare les résultat : celui ayant fait le plus haut score gagne et le perdant prends une blessures par points d'écart. En cas d'égalité, les deux personnages prennent une blessure.</p>
+					</details>
+				</details>
+			</article>
+			<article>
+				<details>
+					<summary id="contexte">Contexte</summary>
+					<p>Mars de l'année 1307, un hiver particulièrement rude vient de se terminer.
+						La plupart du pays, affamé, a dû envoyer ses réserves de nourriture de l'autre côté de la mer, d'où l'armée régulière qui a porté une croisade, revient perdante.<br />
+						Le printemps tant attendu n'offre de que de maigres récoltes, il est terne et froid.<br />
+						Des villages sont mis à sac un peu partout contraignants les populations locales à fuir leur maison.<br />
+						Le shogunat s'est replié sur lui-même, affaiblit par les nombreuses révoltes de villageois affamés qui ont achevé les dernières poches d'autorités en dehors de la capitale. Ainsi le shogunat, paranoïaque, garde ses dernières forces pour verrouiller sa place forte.<br />
+						Les conditions de vie précaires ont provoqué des épidémies aux quatres coins du pays.
+					</p>
+				</details>
+			</article>
+			<article>
+				<details>
+					<summary id="clans">Les clans</summary>
+
+
+					<p>Voici les clans exitants : </p>
+					<ul>
+						<li>
+							<details>
+								<summary id="shinrai">Le clan Shinrai</summary>
+								<p>le clan Shinrai s'est formé suite à la volonté des natifs qui souhaitent reprendre le pouvoir aux colons via les instances politiques.
+									<br /> les premiers colons qui sont arrivés en Radie ont pris le pouvoir et leurs descendants sont les actuels souverains. Cet état de fait à poussé le clan Shinrai à se retrancher sur l'île d'Argençier. Ils n'ont pas pu reprendre le pouvoir à cette époque, depuis ils cohabitent tout en entretenant des relations plus ou moins tendues.</p>
+
+							</details>
+						</li>
+						<li>
+							<details>
+								<summary id="seniaux">L ordre des Seniaux</summary>
+								L'ordre des Séniaux regroupe une grande partie des religieux traditionnels et natifs. Il ne que très peu part aux intrigues politiques car leur position nécessite une apparente neutralité. Un sénie à fait le serment de servir son dieu et d'être à son écoute afin de diffuser sa sagesse dans le monde des hommes..
+							</details>
+						</li>
+						<li>
+							<details>
+								<summary id="vidieu">L ordre de Vidieu</summary>
+								Cet ordre est composé de femmes vierges souhaitant se mettre à l'écart de la société, mener une vie de prière ou aider son prochain. Leurs établissements offrent l'hospitalité au minimum et peuvent aller jusqu'à servir d'hospices.
+
+							</details>
+						</li>
+						<li>
+							<details>
+								<summary id="servenatifs">L ordre des Servenatifs</summary>
+								Ordre à la fois religieux et guerrier, ils possède de très rares institutions . Servenatif signifie "serviteurs du chasseur". La tâche originale des chasseurs de malédictions est de traquer le mal le plus pur mais ces dernières années ils ont plus servi de bras armé à certains dignitaire de l'ordre. Leur influence fut une véritable épine dans le pied de la royauté et engendra un accord entre différents ordres et le roi pour dissoudre l'ordre. Ainsi les derniers chasseurs de malédictions traversent le monde en restant caché pour continuer leur sainte mission.
+
+							</details>
+						</li>
+						<li>
+							<details>
+								<summary id="mesaives">L ordre des mesaives</summary>
+								Ils ont fait voeux de pauvreté. ils sont complètement retirés de la société et considère que la nature aide à la méditation. Ce voeux de pauvreté se retrouve aussi dans leur temples qu'ils mettent à disposition de ceux qui seront capable de les trouver. La société corrompt l'homme avec l'avarice. Quand on rejoint l'ordre on est déclaré mort aux yeux de la société. Pour eux les ancêtres deviennent une partie intégrante de leur Dieu ainsi, ils recherchent le contact avec leur Dieux via leurs ancêtres dans l'au delà. C'est la raison pour laquelle ils ne se fondent pas avec la société car si effectivement il y avait contact, ils ne devraient pas pouvoir influencer les vivants. Leur masque représente la perte de leur identité pour entrer dans la communauté.
+							</details>
+						</li>
+					</ul>
+				</details>
+			</article>
+		</section>
+	</div>
+
+	<!--Onglet Name-->
+	<div id="NameTab" class="mainscreen">
+		<article>
+			<table>
+				<tr>
+					<th>A</th>
+					<td>Adélaïde, Armande, Adeline, Aélis ,Aénor ,Adelinde, Adèle, Alix, Auriane Aëlys, Alaïs, Aldherande , Aénor, Aliénor, Alinéor, Anastasie ,Astrid, Aude, Auriane, Aurore , Athénaïs, Amburgis, Archipiade, Arnégonde, Arégonde, Arnould, Anne, Agnès, Ana, Anna, Anglitorian, Accolon, Agravain, Avallach
+					</td>
+					<td>
+						Armand, Adalbert, Adelphe, Adémar , Auguste, Aimeric, Aloïs, Alos, Alosus, Amalric, Amaury, Ambroise, Arnaud, Arthur, Aymeric Albert, Antor
+
+					</td>
+				</tr>
+				<tr>
+					<th>B</th>
+					<td>
+						Berthe, Bertille, Blanche, Brunehaut , Basine, Brunehilde, Béatrice, Bérangère, Blanche, Brisaine
+					</td>
+					<td>
+						Baldric, Barthélemy, Baudoin , Balin, Balan, Bohort,
+						Bertrand, Bohémond , Barthélémy, Ban, Bohort, Basin
+					</td>
+				</tr>
+				<tr>
+					<th>
+						C
+					</th>
+					<td>
+						Clémence, Clotilde, Clothilde, Cécile, Colombe, Constance, Cunégonde, Cyrielle, Constance, Clémence, Charlotte, Cécile, Claudine
+					</td>
+					<td>
+						Cadfael, Cadwal, Caradec, Charles , Caradoc
+						Clotaire, Clovis, Chrétien, Cédric, Conrad, Clément, Colgrin, Claudas, Claudin, Calogrenant
+					</td>
+				</tr>
+				<tr>
+					<th>D</th>
+					<td>
+						Dorothée, Dandrane, Déotéria, Désirée </td>
+					<td>Do
+					</td>
+				</tr>
+				<tr>
+					<th>E</th>
+					<td>Edith, Eléonore, Elodie, Eponine, Elaine, Enide, Ellan, Esclarmonde, Eudeline, Eulalie, Euphrasie, Eléonore, Esclarmonde, Edwige, Elisabeth
+					</td>
+					<td>
+						Eloi, Enguerrand, Estève , Elphin, Eudes, Evrard, Enguerrand, Erec, Eudes
+					</td>
+				</tr>
+				<tr>
+					<th>F</th>
+					<td>Flore, Flora, Frénégonde, Finette </td>
+					<td>Féréol, Fernand, Flavien, Foulques, Florimond, François, Florent, Fleury
+					</td>
+				</tr>
+				<tr>
+					<th>G</th>
+					<td>Gersande, Guenièvre, Gwendoline, Girflet, Gareth, Gaheris</td>
+					<td>
+						Gaultier, Galaad, Gauthier , Galahad, Gaheris, Gauderic, Gaspard, Gauvin, Gérald, Godhroy ,Godefroy ,Grégoire, Guillaume,, Gilles, Ganelon, Guillaume, Gorlois
+					</td>
+				</tr>
+				<tr>
+					<th>H</th>
+					<td>Héloïse, Hermine, Hildegarde, Henriette, Hermance
+					</td>
+					<td>Harald, Hugues, Henri, Hoel
+					</td>
+				</tr>
+				<tr>
+					<th>I</th>
+					<td>
+						Iseult, Isabeau, Isabelle, Isaure, Isolde, Ingeberge
+					</td>
+					<td>
+						-
+					</td>
+				</tr>
+				<tr>
+					<th>J</th>
+					<td>
+						Jeanne,Jehanne, Justine, Jacqueline
+					</td>
+					<td>
+						Jacques, Jean, Jehan, Josserand, John, Justin
+					</td>
+				</tr>
+				<tr>
+					<th>K</th>
+					<td>
+						-
+					</td>
+					<td>Kay</td>
+				</tr>
+				<tr>
+					<th>L</th>
+					<td>
+						Laudine, Ludivine ,Louise
+					</td>
+					<td>
+						Lambert, Lancelot, Lucas, Louis, Lot, Loth, Léodagan
+					</td>
+				</tr>
+				<tR>
+					<th>N</th>
+					<td>
+						-
+					</td>
+					<td>
+						Norbert
+					</td>
+				</tR>
+				<tr>
+					<th>M</th>
+					<td>
+						Marie, Melissande,Morgane,Mathilde, Mahaut, Mélusine, Mabelle, Mahaut ,Mathilde, Mélissande,Mélissandre,Mélisende, Mélusine,Morgane, Marguerite, Marcova, Morgane, Morgause
+
+					</td>
+					<td>Merlin, Morfydd, Martin, Mordred, Morgred, Melehant</td>
+				</tr>
+				<tr>
+					<th>O</th>
+					<td>Odeline,Ombeline</td>
+					<td>Othon</td>
+				</tr>
+				<tr>
+					<th>P</th>
+					<td>Pétronille</td>
+					<td>Perceval, Pierrick, Pierre, Philippe, Pelles</td>
+				</tr>
+				<tr>
+					<th>Q</th>
+					<td>-</td>
+					<td>Quentin</td>
+				</tr>
+				<tr>
+					<th>R</th>
+					<td>Radegonde, Rosemonde, Regina, Rolande, Rowena, Raymonde</td>
+					<td>Robin, Robert, Ruffin, Rowena, Richard,,j Raymond</td>
+				</tr>
+				<tr>
+					<th>T</th>
+					<td>Tiphaine, Thaïs</td>
+					<td>Tanguy, Thibaut, Taliesin, Tancrède ,Thibault,Tristan, Tiburce</td>
+				</tr>
+				<tr>
+					<th>U</th>
+					<td>-</td>
+					<td>Uther, Urien</td>
+				</tr>
+				<tr>
+					<th>V</th>
+					<td>Vivien, Viviane</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th>W</th>
+					<td>Wisigarde</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th>X</th>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th>Y</th>
+					<td>Yseult, Ygraine</td>
+					<td>Yvain, Yves</td>
+				</tr>
+				<tr>
+					<th>Z</th>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+			</table>
+		</article>
+	</div>
+
+	<!--PARTY BAR-->
+	<div class="Party">
+		<h1>Les vagabonds</h1>
+		<button class="minimize" onclick="minimizeParty()"><i id="min-party-i" class="fas fa-caret-square-up" title="Afficher/Réduire les cartes du groupe"></i></button>
+		<p id="partyName">Personnages séléctionnés </p>
+		<div class="partyCardsHolder">
+			<div class="card-menu"><img id="partyPic01" src="images/0-A.png" alt="Personnage selectionné" class="partyCards" onclick="flipCardSelected(0)">
+				<div class="card-menu-content">
+					<ul>
+						<li class="dropdown-list">Détails
+						</li>
+						<li class="dropdown-list">Link 2
+						</li>
+						<li class="dropdown-list" onclick="deleteCardSelected(0)">Supprimer
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="card-menu"><img id="partyPic02" src="images/0-A.png" alt="Personnage selectionné" class="partyCards" onclick="flipCardSelected(1)">
+				<div class="card-menu-content">
+					<ul>
+						<li class="dropdown-list">Détails
+						</li>
+						<li class="dropdown-list">Link 2
+						</li>
+						<li class="dropdown-list" onclick="deleteCardSelected(1)">Supprimer
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="card-menu"><img id="partyPic03" src="images/0-A.png" alt="Personnage selectionné" class="partyCards" onclick="flipCardSelected(2)">
+				<div class="card-menu-content">
+					<ul>
+						<li class="dropdown-list">Détails
+						</li>
+						<li class="dropdown-list">Link 2
+						</li>
+						<li class="dropdown-list" onclick="deleteCardSelected(2)">Supprimer
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--PART BAR ENDS-->
+	<!--SIDE BAR-->
+	<aside class="side-bar-show" id="side-bar">
+		<button class="side-button" id="side-button" onclick="toggleSideBar()" title="Afficher/Réduire le panneau">></button>
+		<button class="side-menu-toggle-ON" id="tables" onclick="togglePanel('tables')" title="Afficher vos tables favorites">Tables</button><button class="side-menu-toggle-OFF" id="events" onclick="togglePanel('events')" title="Afficher les évènements">Evènments</button>
+		<!--Onglet tables de favoris de la SIDE BAR-->
+		<div class="docked-tables" id="docked-tables-id">
+			<!--Table des roles-->
+			<div id="role" class="dockable-table" style="display: none;">
+				<button class="side-buttons" onclick="toggleDisplay('role')" title="Retirer cette table des favoris">X</button>
+				<br />
+				<table class="small">
+					<tr>
+						<!--class="small_table", th {def} & class="small_table", td {def}-->
+						<th>2D6</th>
+						<th>Rôle</th>
+						<th>But</th>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>La Purification</td>
+						<td>
+							Votre dieu a abandonné vos terres, vous êtes là pour chasser le mal.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							3
+						</td>
+						<td>L'infiltré</td>
+						<td>
+							Vous avez en votre possession des informations cruciales qui pourrait faire chuter l'organisation que vous avez infiltré. <strong>Attention</strong> : vos compagnons ne doivent pas en prendre connaissance de votre mission!
+						</td>
+					</tr>
+					<tr>
+						<td>
+							4
+						</td>
+						<td>L'exil</td>
+						<td>
+							Vous fuyez votre foyer désormais votre conception du monde est bouleversée. <strong>Attention</strong> : vous avez été exilé suite à un acte très grave !
+						</td>
+					</tr>
+					<tr>
+						<td>
+							5
+						</td>
+						<td>Le réfugié</td>
+						<td>
+							Votre foyer est détruit, vous n'avez plus d'endroit où aller. Vous cherchez un endroit où vous établir.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							6
+						</td>
+						<td>Le protecteur</td>
+						<td>
+							Vous parcourez le pays pour défendre les autres du mal.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							7
+						</td>
+						<td>Le voleur</td>
+						<td>
+							Vous infiltrez les groupes de voyageurs pour leur dérober leurs biens avant de les laisser sur place.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							8
+						</td>
+						<td>Le marchand</td>
+						<td>
+							Vous vendez des babioles et/ou signez des contrats commerciaux à travers le pays.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							9
+						</td>
+						<td>Le chasseur de prime</td>
+						<td>
+							Vous traquez les criminels à travers le pays pour les vendre à la justice. <strong>Attention</strong> : cette activité est souvent mal vue, vous passez pour un opportuniste sans humanité.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							10
+						</td>
+						<td>Le cultiste</td>
+						<td>
+							Dans le Sud,, vous avez été témoin de choses que l'esprit humain ne devrait jamais voir. Depuis vous vous êtes tourné vers de nouvelle divinités et vous cherchez des voyageurs à sacrifier pour ces dernières. <strong>Attention</strong> : de telles actions sont punies de mort.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							11
+						</td>
+						<td>La visite diplomatique</td>
+						<td>
+							Vous souhaitez rendre visite à un seigneur pour le convier à une fête destinée à célébrer un évènement heureux.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							12
+						</td>
+						<td>Le proche malade</td>
+						<td>
+							Une personne proche est gravement malade, vous devez lui apporter des médicaments. Vous aurez peut-être à voler pour les obtenir.
+						</td>
+					</tr>
+
+				</table>
+			</div>
+			<!--Table des seuils de difficulté-->
+			<div id="test" class="dockable-table" style="display: none;">
+				<button class="side-buttons" onclick="toggleDisplay('test')" title="Retirer cette table des favoris">X</button>
+				<br />
+				<table>
+					<tr>
+						<th>Difficulté du test</th>
+						<th>Résultats attendus</th>
+					</tr>
+					<tr>
+						<td>Très Dur</td>
+						<td>6</td>
+					</tr>
+					<tr>
+						<td>Assez Dur</td>
+						<td>5+</td>
+					</tr>
+					<tr>
+						<td>Moyen</td>
+						<td>4+</td>
+					</tr>
+					<tr>
+						<td>Facile</td>
+						<td>3+</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!--Onglet event de la SIDE BAR-->
+		<div class="docked-events">
+		</div>
+	</aside>
+	<br />
+
+	<script src="scripts/main.js"></script>
+</body>
+
+</html>
