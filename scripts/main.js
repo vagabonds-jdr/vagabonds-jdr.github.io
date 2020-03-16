@@ -13,13 +13,13 @@ let sideBarMinimized = false;
 let StartDone = false;
 let partyMinimized = false;
 
-//Images des Personnages selectionnés
+//Images des Personnages selectionnï¿½s
 let img_partyPic = [0, 1, 2];
 //nombre de paires de cartes de personnages dans le dossier images
 let num_nbOfArch = 78;
-//id des personnages Selectionnés
+//id des personnages Selectionnï¿½s
 let archList = [];
-//ID des personnages proposés
+//ID des personnages proposï¿½s
 let archLobby = [0, 0, 0];
 
 ///////////////////////////////////Setup des variables\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -38,7 +38,7 @@ function Start() {
 	StartDone = true;
 }
 //////////////////////////////CREATION DE GROUPE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-//Modification simultanée des 3 boutons de selection.
+//Modification simultanï¿½e des 3 boutons de selection.
 function ReWriteSelectButtons(text) {
 
 	b_SelectChar1.setAttribute('text', text);
@@ -47,7 +47,7 @@ function ReWriteSelectButtons(text) {
 	// alert(b_SelectChar1.getAttribute('text'));
 }
 
-//randomisation des ID des cartes proposées
+//randomisation des ID des cartes proposï¿½es
 function randomizeArchetype() {
 
 	b_SelectChar1.setAttribute('disable', true);
@@ -59,7 +59,7 @@ function randomizeArchetype() {
 
 }
 
-//boucle de randomization + prévention de doublons au sein du loby et avec ceux déjà collectionnés
+//boucle de randomization + prï¿½vention de doublons au sein du loby et avec ceux dï¿½jï¿½ collectionnï¿½s
 function randomizeLobby(a) {
 	let num_charID = Math.floor(Math.random() * (num_nbOfArch - 1)) + 1;
 	archLobby[a] = num_charID;
@@ -84,7 +84,7 @@ function randomizeLobby(a) {
 	}
 }
 
-//Mise à jour des cartes de personnage selectionnables
+//Mise ï¿½ jour des cartes de personnage selectionnables
 function refreshLobby() {
 	//alert('refresh lobby');
 	let i;
@@ -107,16 +107,25 @@ function flipCard(a) {
 	let img = document.querySelector('#selectPic0' + (a + 1));
 	//alert(img);
 	let src = img.getAttribute('src');
+	img.style.transform = "rotateY(90deg)";
+	setTimeout(function e() {
 	//on regarde le chemin et en fonction de son ID de arch lobby on en deduit ce qu'on doit trouver.
 	if (src === 'images/' + archLobby[a] + '-A.png') {
 		img.setAttribute('src', 'images/' + archLobby[a] + '-B.png');
 	} else {
 		img.setAttribute('src', 'images/' + archLobby[a] + '-A.png');
 	}
+	img.classList.remove("flip1");
+	}, 200);
+	setTimeout(function f() {
+		img.style.transform = "rotateY(0deg)";;
+	}, 200);
+
+	img.classList.remove("flip2");
 
 }
 
-//Mise à jour des cartes de personnage selectionnées
+//Mise ï¿½ jour des cartes de personnage selectionnï¿½es
 function refreshParty() {
 	//alert('refresh lobby');
 	let i;
@@ -133,7 +142,7 @@ function refreshParty() {
 	b_partMinimize.setAttribute('class', 'far fa-window-minimize');
 	partyMinimized = false;
 }
-//Mise à jour des cartes de personnage selectionnées
+//Mise ï¿½ jour des cartes de personnage selectionnï¿½es
 function minimizeParty() {
 	if (partyMinimized) {
 
@@ -152,7 +161,7 @@ function minimizeParty() {
 	//b_partMinimize.classList.toggle();
 
 }
-//Flip la carte selectionnée a
+//Flip la carte selectionnï¿½e a
 function flipCardSelected(a) {
 	//alert('flipCard0');
 	if (StartDone === false) {
@@ -161,22 +170,32 @@ function flipCardSelected(a) {
 	let img = document.querySelector('#partyPic0' + (a + 1));
 	//alert(img);
 	let src = img.getAttribute('src');
+	img.style.transform = "rotateY(90deg)";
 	//on regarde le chemin et en fonction de son ID de arch lobby on en deduit ce qu'on doit trouver.
-	img.style.animationPlayState = "paused";
 
-	if (archList[a] != null) {
-		if (src === 'images/' + archList[a] + '-A.png') {
-			img.setAttribute('src', 'images/' + archList[a] + '-B.png');
+	setTimeout(function e() {
+
+		if (archList[a] != null) {
+			if (src === 'images/' + archList[a] + '-A.png') {
+				img.setAttribute('src', 'images/' + archList[a] + '-B.png');
+			} else {
+				img.setAttribute('src', 'images/' + archList[a] + '-A.png');
+			}
 		} else {
-			img.setAttribute('src', 'images/' + archList[a] + '-A.png');
+			if (src === 'images/0-A.png') {
+				img.setAttribute('src', 'images/0-B.png');
+			} else {
+				img.setAttribute('src', 'images/0-A.png');
+			}
 		}
-	} else {
-		if (src === 'images/0-A.png') {
-			img.setAttribute('src', 'images/0-B.png');
-		} else {
-			img.setAttribute('src', 'images/0-A.png');
-		}
-	}
+		img.classList.remove("flip1");
+	}, 200);
+
+	setTimeout(function f() {
+		img.style.transform = "rotateY(0deg)";;
+	}, 200);
+
+	img.classList.remove("flip2");
 
 }
 
@@ -286,4 +305,3 @@ b_randChar.addEventListener('click', function () {
 	//ReWriteSelectButtons('Choisir ce personnage');
 	refreshLobby();
 });
-

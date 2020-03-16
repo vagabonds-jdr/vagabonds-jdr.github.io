@@ -20,9 +20,11 @@
 <body>
 	<!--Barre d'onglets -->
 	<nav>
+		<button class="navbtn" onclick="openPage('StartTab', this, '#006c7d')"id="defaultOpen">Acceuil</button>
+
 		<button class="navbtn" onclick="openPage('TeamTab', this, '#006c7d')">Création de groupe</button>
 
-		<button class="navbtn" onclick="openPage('MapTab', this, '#006c7d')" id="defaultOpen">Carte du monde</button>
+		<button class="navbtn" onclick="openPage('MapTab', this, '#006c7d')" >Carte du monde</button>
 
 		<button class="navbtn" onclick="openPage('LoreTab', this, '#006c7d')">Documentation</button>
 
@@ -33,6 +35,14 @@
 	</nav>
 	<!--Fin Barre d'onglets-->
 
+	<!-- Onglet d'acceuil -->
+	<div id="StartTab" class="mainscreen">
+		<article>
+
+			<p>Bienvenue sur le site compagnon de <em> Vagabonds </em>, le jdr</p>
+			<p>Ce site est destiné aux maitres de jeu qui voudraient faire une partie de <em>Vagabonds</em> </p>
+		</article>
+	</div>
 
 	<!-- Onglet Map -->
 	<div id="MapTab" class="mainscreen">
