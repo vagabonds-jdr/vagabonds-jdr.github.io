@@ -769,7 +769,7 @@ a:hover {
 	/*Location*/
 	display: inline-block;
 	position: relative;
-	width: 17%;
+	width: 10%;
 	left: 0;
 	z-index: 2;
 	/*height: 15%;*/
@@ -790,7 +790,7 @@ a:hover {
 
 	/*Location*/
 	width: 32%;
-	z-index: 2;
+	z-index: 3;
 	/*Padding*/
 	/*Border*/
 
@@ -816,7 +816,7 @@ a:hover {
 	/*Location*/
 	display: none;
 	position: absolute;
-	z-index: 3;
+	z-index: 4;
 	top: 15%;
 	right: -10%;
 	width: 45%;
@@ -962,7 +962,7 @@ a:hover {
 	top: 40px;
 	position: relative;
 	width: 10%;
-	left: -20%;
+	left: -15px;
 	min-width: 30px;
 	/*Padding*/
 	/*Border*/
@@ -991,15 +991,16 @@ a:hover {
 	top: 0;
 	display: inline-block;
 	background-color: #f0e6d2;
-	width: 30%;
+	width: 27%;
 	z-index: inherit;
+	margin : auto 0;
 	/*Padding*/
 	/*Border*/
 	border: 1px solid #f0e6d2;
 	/*Font definition*/
 	color: #010a13;
 	text-decoration: none;
-	font-size: 10px;
+	font-size: 9px;
 	/*text-transform: none;
 	/*Animation*/
 	pointer-events: none;
@@ -1010,15 +1011,16 @@ a:hover {
 	top: 0;
 	display: inline-block;
 	background-color: #010a13;
-	width: 30%;
+	width: 27%;
 	z-index: inherit;
+	margin : auto 0;
 	/*Padding*/
 	/*Border*/
 	border: 1px solid #f0e6d2;
 	/*Font definition*/
 	color: #f0e6d2;
 	text-decoration: none;
-	font-size: 10px;
+	font-size: 9px;
 	/*Animation*/
 	pointer-events: all;
 }
@@ -1028,15 +1030,16 @@ a:hover {
 	top: 0;
 	display: inline-block;
 	background-color: #f0e6d2;
-	width: 30%;
+	width: 27%;
 	z-index: inherit;
+	margin : auto 0;
 	/*Padding*/
 	/*Border*/
 	border: 1px solid #f0e6d2;
 	/*Font definition*/
 	color: #010a13;
 	text-decoration: none;
-	font-size: 10px;
+	font-size: 9px;
 
 	/*text-transform: none;
 	/*Animation*/
@@ -1048,15 +1051,16 @@ a:hover {
 	top: 0;
 	display: inline-block;
 	background-color: #010a13;
-	width: 30%;
+	width: 27%;
 	z-index: inherit;
+	margin : auto 0;
 	/*Padding*/
 	/*Border*/
 	border: 1px solid #f0e6d2;
 	/*Font definition*/
 	color: #f0e6d2;
 	text-decoration: none;
-	font-size: 10px;
+	font-size: 9px;
 	text-shadow: 0px 0px 2px white, 0 0 25px #f0e6d2, 0 0 25px #f0e6d2;
 	/*Animation*/
 	pointer-events: all;
@@ -1102,7 +1106,52 @@ a:hover {
 	/*Font definition*/
 	/*Animation*/
 }
+.mainscreen>article>table 
+{
+	margin-top: 50PX;
+}
+/*//////////////////////////////////////////////////////DICE ROLL\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+#docked-dice-roll-id table, #docked-dice-roll-id th, #docked-dice-roll-id td
+{
+	margin-top: 90px;;
+	margin: auto;
+	empty-cells: hide;
+	font-size: 10px;
+	text-align: center;
+	border: none;
+}
 
+#docked-dice-roll-id table button
+{
+	width: 30px;
+}
+#docked-dice-roll-id table button:hover
+{
+	width: 30px;
+}
+
+#docked-dice-roll-id table+button
+{
+	width: 80px;
+}
+#docked-dice-roll-id table+button:hover
+{
+	width: 80px;
+	color: inherit;
+}
+/*/////////////////////////////////////////////////////START TAB\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+#StartTab article 
+{
+border: 1px solid #1e282d;
+margin: 30px 20px;
+padding: 20px;
+}
+
+#StartTab article li
+{
+text-align: left;
+list-style-type: disc;
+}
 /*////////////////////////////////////////////////////ANIMATIONS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 @keyframes a_cards {
 	0% {

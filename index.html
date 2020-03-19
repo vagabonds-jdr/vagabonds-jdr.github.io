@@ -38,9 +38,17 @@
 	<!-- Onglet d'acceuil -->
 	<div id="StartTab" class="mainscreen">
 		<article>
-
 			<p>Bienvenue sur le site compagnon de <em> Vagabonds </em>, le jdr</p>
-			<p>Ce site est destiné aux maitres de jeu qui voudraient faire une partie de <em>Vagabonds</em> </p>
+			<p>Ce site est destiné aux maitres de jeu qui voudraient faire une partie de <em>Vagabonds</em>.</p>
+		</article>
+		<article>
+			<p>Voici ce que vous pouvez trouver sur ce site : </p>
+			<ul>	
+				<li>L'onglet "Création de groupe", un outils prévu pour vous faciliter la séléction des achétypes par vos joueurs</li>
+				<li>L'onglet "Carte du monde"</li>
+				<li>L'onglet "Documentation" différentes informations sur l'univers du jeu.</li>
+				<li>Il y a aussi une banque de noms dans l'onglet correspondant. Vous pourrez ainsi facilement improviser des personnages et proposer à vos joueurs les moins inspirés des noms cohérents et qui leur plait</li>
+			</ul>
 		</article>
 	</div>
 
@@ -599,13 +607,39 @@
 					</ul>
 				</div>
 			</div>
+			<div class="card-menu"><img id="partyPic04" src="images/0-A.png" alt="Personnage selectionné" class="partyCards" onclick="flipCardSelected(3)">
+				<div class="card-menu-content">
+					<ul>
+						<li class="dropdown-list">Détails
+						</li>
+						<li class="dropdown-list">Link 2
+						</li>
+						<li class="dropdown-list" onclick="deleteCardSelected(3)">Supprimer
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="card-menu"><img id="partyPic05" src="images/0-A.png" alt="Personnage selectionné" class="partyCards" onclick="flipCardSelected(4)">
+				<div class="card-menu-content">
+					<ul>
+						<li class="dropdown-list">Détails
+						</li>
+						<li class="dropdown-list">Link 2
+						</li>
+						<li class="dropdown-list" onclick="deleteCardSelected(4)">Supprimer
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!--PART BAR ENDS-->
 	<!--SIDE BAR-->
 	<aside class="side-bar-show" id="side-bar">
 		<button class="side-button" id="side-button" onclick="toggleSideBar()" title="Afficher/Réduire le panneau">></button>
-		<button class="side-menu-toggle-ON" id="tables" onclick="togglePanel('tables')" title="Afficher vos tables favorites">Tables</button><button class="side-menu-toggle-OFF" id="events" onclick="togglePanel('events')" title="Afficher les évènements">Evènments</button>
+		<button class="side-menu-toggle-ON" id="tables" onclick="togglePanel('tables')" title="Afficher vos tables favorites">Tables</button>
+		<button class="side-menu-toggle-OFF" id="events" onclick="togglePanel('events')" title="Afficher les évènements">Evènments</button>
+		<button class="side-menu-toggle-OFF" id="dice-roll" onclick="togglePanel('dice-roll')" title="Afficher le lanceur de dés">Jets de Dés</button>
 		<!--Onglet tables de favoris de la SIDE BAR-->
 		<div class="docked-tables" id="docked-tables-id">
 			<!--Table des roles-->
@@ -749,6 +783,33 @@
 		</div>
 		<!--Onglet event de la SIDE BAR-->
 		<div class="docked-events">
+		</div>
+		<!--Onglet Dice de la SIDE BAR-->
+		<div class="docked-dice-roll" id="docked-dice-roll-id">
+			<table>
+				<tr>
+					<td>
+						<button onclick="fixNbDices(-1)"> - </button>
+					</td>
+
+					<td>
+						<i id="dice1" class="fas fa-dice-two" style="font-size:60px;"></i>
+					</td>
+					
+					<td>
+						<i id="dice2" class="fas fa-dice-two"style="font-size:60px;"></i>
+					</td>
+					
+					<td>
+						<i id="dice3" class="fas fa-dice-two"style="font-size:60px;"></i>
+					</td>
+
+					<td>
+						<button onclick="fixNbDices(1)"> + </button>
+					</td>
+				</tr>
+			</table>
+			<button onclick="rollTheDice()">Lancer</button>
 		</div>
 	</aside>
 	<br />

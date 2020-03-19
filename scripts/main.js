@@ -1,6 +1,6 @@
 //////////////////////////////VARIABLES\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 let img_Map = document.querySelector('#Map');
-let img_archList = ['0', '1', '2'];
+let img_archList = ['0', '1', '2', '3', '4'];
 let b_defineName = document.querySelector('#b_userChanging');
 let b_randChar = document.querySelector('#b_randChar');
 let b_SelectChar1 = document.querySelector('#b_select01');
@@ -8,10 +8,12 @@ let b_SelectChar2 = document.querySelector('#b_select02');
 let b_SelectChar3 = document.querySelector('#b_select03');
 let sideBar = document.querySelector('#side-bar');
 let sideBarBtn = document.querySelector('#side-button');
-let b_partMinimize = document.querySelector('#min-party-i')
+let b_partMinimize = document.querySelector('#min-party-i');
 let sideBarMinimized = false;
 let StartDone = false;
 let partyMinimized = false;
+let int_nb_dices = 3;
+let dice_list = [0,1,2];
 
 //Images des Personnages selectionn�s
 let img_partyPic = [0, 1, 2];
@@ -28,10 +30,16 @@ function Start() {
 	img_archList[0] = document.querySelector('#selectPic01');
 	img_archList[1] = document.querySelector('#selectPic02');
 	img_archList[2] = document.querySelector('#selectPic03');
+	img_archList[3] = document.querySelector('#selectPic04');
+	img_archList[4] = document.querySelector('#selectPic05');
 	img_partyPic = document.getElementsByClassName("partyCards");
 	/*img_partyPic[0] = document.querySelector('#partyPic01');
 	img_partyPic[1] = document.querySelector('#partyPic02');
 	img_partyPic[2] = document.querySelector('#partyPic03');*/
+	dice_list[0] = document.getElementById('dice1');
+	dice_list[1] = document.getElementById('dice2');
+	dice_list[2] = document.getElementById('dice3');
+
 	b_SelectChar1.disabled = true;
 	b_SelectChar2.disabled = true;
 	b_SelectChar3.disabled = true;
@@ -129,7 +137,7 @@ function flipCard(a) {
 function refreshParty() {
 	//alert('refresh lobby');
 	let i;
-	for (i = 0; i != 3; i++) {
+	for (i = 0; i != 5; i++) {
 		if (archList[i] != null) {
 			img_partyPic[i].setAttribute('src', 'images/' + archList[i] + '-A.png');
 			img_partyPic[i].style.display = "inline-block";
@@ -142,6 +150,7 @@ function refreshParty() {
 	b_partMinimize.setAttribute('class', 'far fa-window-minimize');
 	partyMinimized = false;
 }
+
 //Mise � jour des cartes de personnage selectionn�es
 function minimizeParty() {
 	if (partyMinimized) {
@@ -149,7 +158,7 @@ function minimizeParty() {
 		refreshParty();
 	} else {
 		let i;
-		for (i = 0; i != 3; i++) {
+		for (i = 0; i != 5; i++) {
 			img_partyPic[i].style.display = "none";
 
 		}
@@ -230,14 +239,30 @@ function toggleDisplay(displayName) {
 }
 
 function togglePanel(panel) {
+
 	if (panel === 'tables') {
 		document.getElementById('tables').setAttribute('class', 'side-menu-toggle-ON');
 		document.getElementById('events').setAttribute('class', 'side-menu-toggle-OFF');
+		document.getElementById('dice-roll').setAttribute('class', 'side-menu-toggle-OFF');
+		//inclue le panneau contenant les tables favorites dans l'écran
 		document.getElementById('docked-tables-id').setAttribute('class', 'docked-tables');
-	} else {
+		document.getElementById('docked-dice-roll-id').setAttribute('class', 'out-of-tables');
+		
+	} else if (panel === 'events'){
 		document.getElementById('tables').setAttribute('class', 'side-menu-toggle-OFF');
 		document.getElementById('events').setAttribute('class', 'side-menu-toggle-ON');
+		document.getElementById('dice-roll').setAttribute('class', 'side-menu-toggle-OFF');
+		//sort le panneau contenant les tables favorites de l'écran
 		document.getElementById('docked-tables-id').setAttribute('class', 'out-of-tables');
+		document.getElementById('docked-dice-roll-id').setAttribute('class', 'out-of-tables');
+	}
+	else {
+		document.getElementById('tables').setAttribute('class', 'side-menu-toggle-OFF');
+		document.getElementById('events').setAttribute('class', 'side-menu-toggle-OFF');
+		document.getElementById('dice-roll').setAttribute('class', 'side-menu-toggle-ON');
+		//sort le panneau contenant les tables favorites de l'écran
+		document.getElementById('docked-tables-id').setAttribute('class', 'out-of-tables');
+		document.getElementById('docked-dice-roll-id').setAttribute('class', 'docked-dice-roll');
 	}
 }
 
@@ -254,6 +279,46 @@ function buttonSelectLobby(nb) {
 		alert('Veuillez cliquer sur "Archetypes aleatoires avant');
 	}
 	refreshParty();
+}
+function rollTheDice()
+{
+	if (!Start){Start();}
+let dicesClass_list = ["fas fa-dice-one","fas fa-dice-two","fas fa-dice-three","fas fa-dice-four","fas fa-dice-five","fas fa-dice-six"];
+//Supprime toutes les classes de dés présentes sur dice_list[o]
+
+			dice_list[0].setAttribute( 'class',dicesClass_list[Math.floor(Math.random() * 6)]);
+	if (int_nb_dices>1)
+	{
+
+			dice_list[1].setAttribute( 'class',dicesClass_list[Math.floor(Math.random() * 6)]);
+				if ( int_nb_dices>2)
+					{
+						dice_list[2].setAttribute( 'class',dicesClass_list[Math.floor(Math.random() * 6)]);
+					}
+	}
+
+}
+
+function fixNbDices(nb)
+{
+	int_nb_dices = int_nb_dices + nb;
+
+	if (int_nb_dices>3){ int_nb_dices = 3;}
+
+	if (int_nb_dices<1){ int_nb_dices = 1;}
+	let i;
+		for (i = 0; i != 3; i++) 
+		{
+			if ((int_nb_dices-1)>=i)
+			{
+			dice_list[i].style.display = "inline";
+			}
+			else
+			{
+			dice_list[i].style.display = "none";
+			}
+		}
+
 }
 ////////////////////////////////////////ONGLETS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 function openPage(pageName, elmnt, color) {
