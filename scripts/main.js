@@ -14,6 +14,7 @@ let StartDone = false;
 let partyMinimized = false;
 let int_nb_dices = 3;
 let dice_list = [0,1,2];
+var rollHistory =[''];
 
 //Images des Personnages selectionn�s
 let img_partyPic = [0, 1, 2];
@@ -44,6 +45,34 @@ function Start() {
 	b_SelectChar2.disabled = true;
 	b_SelectChar3.disabled = true;
 	StartDone = true;
+}
+/////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+function formatDate(date) {
+	var d = new Date(date),
+		minute = ''+(d.getMinutes());
+		hour = ''+(d.getHours());
+		day = '' + d.getDate(),
+        month = '' + (d.getMonth() + 1),
+        year = d.getFullYear();
+
+	if (month.length < 2) 
+		{
+		month = '0' + month;
+		}
+    if (day.length < 2) 
+		{
+		day = '0' + day;
+		}
+	if (hour.length < 2) 
+		{
+		hour = '0' + hour;
+		}
+	if (minute.length < 2) 
+        {
+		minute = '0' + minute;
+		}
+
+    return (day + "/" + month + ", " + hour + " : " + minute);
 }
 //////////////////////////////CREATION DE GROUPE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //Modification simultan�e des 3 boutons de selection.
@@ -280,24 +309,79 @@ function buttonSelectLobby(nb) {
 	}
 	refreshParty();
 }
+
+
+
+
 function rollTheDice()
 {
-	if (!Start){Start();}
+	if (!Start)
+	{Start();}
+	let result = "- (" + formatDate(Date.now()) + ") Resultat : ";
 let dicesClass_list = ["fas fa-dice-one","fas fa-dice-two","fas fa-dice-three","fas fa-dice-four","fas fa-dice-five","fas fa-dice-six"];
 //Supprime toutes les classes de dés présentes sur dice_list[o]
 
-			dice_list[0].setAttribute( 'class',dicesClass_list[Math.floor(Math.random() * 6)]);
+			let roll = Math.floor(Math.random() * 6);
+
+			dice_list[0].setAttribute( 'class',dicesClass_list[roll]);
+			if (roll == 0)
+			{
+				result += " " + "<strong class=\"critical\">" + (roll+1) + "</strong>";
+			}
+			else
+			{
+				result += " " + (roll+1);
+			}
+			
+
 	if (int_nb_dices>1)
 	{
+		 roll = Math.floor(Math.random() * 6);
+		dice_list[1].setAttribute( 'class',dicesClass_list[roll]);
 
-			dice_list[1].setAttribute( 'class',dicesClass_list[Math.floor(Math.random() * 6)]);
+		if (roll == 0)
+			{
+				result += " " + "<strong class=\"critical\">" + (roll+1) + "</strong>";
+			}
+			else
+			{
+				result += " " + (roll+1);
+			}
+
 				if ( int_nb_dices>2)
 					{
-						dice_list[2].setAttribute( 'class',dicesClass_list[Math.floor(Math.random() * 6)]);
+
+						roll = Math.floor(Math.random() * 6);
+						dice_list[2].setAttribute( 'class',dicesClass_list[roll]);
+
+						if (roll == 0)
+							{
+								result += " " + "<strong class=\"critical\">" + (roll+1) + "</strong>";
+							}
+							else
+							{
+								result += " " + (roll+1);
+							}
 					}
 	}
-
+HistoryNewEntry (result);
 }
+
+
+
+function HistoryNewEntry(entry)
+{
+	let content = "<tr><td>" + entry + "</td></tr>";
+	for (let i = (rollHistory.length-1); i>0; i--)
+	{
+		content += "<tr><td>" + rollHistory[i] + "</td></tr>";
+	}
+
+	rollHistory.push(entry);
+	document.getElementById("DiceHistory").innerHTML = content;
+}
+
+
 
 function fixNbDices(nb)
 {
