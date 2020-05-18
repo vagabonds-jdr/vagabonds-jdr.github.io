@@ -501,6 +501,7 @@ a:hover {
 	width: 100%;
 	align-content: center;
 	display: block;
+	position: absolute;
 	margin: 0;
 	z-index: -1;
 	/*Padding*/
@@ -1125,6 +1126,59 @@ a:hover {
 {
 	margin-top: 50PX;
 }
+
+/*//////////////////////////////////////////////////////Events Tab\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+.docked-events
+{
+	/*border: solid 2px #b24a4a ;*/
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 94%;
+}
+#currentEvent div
+{
+	margin: 2% 8%;
+	text-align: justify;
+	padding: 2%;
+	overflow-x: auto;
+	overflow-y: hidden;
+	background-position: 50% 50% ;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#currentEvent h3
+{
+	text-align: center;
+}
+
+.quest 
+{
+	border: solid 1px #010a13;
+	line-height: 1.8;
+	font-size: 0.8em;
+	cursor: pointer;
+	transition-duration: 0.2s;
+	transition-timing-function: ease;
+	
+
+}
+
+.quest:hover
+{
+	border: solid 1px #ccc3a7;
+
+}
+
+.quest h3 
+{
+	line-height: 100%;
+	font-weight: bold;
+    letter-spacing: 0.05em;
+    line-height: 100%;
+	text-transform: uppercase;
+	font-size: 1.1em;
+}
 /*//////////////////////////////////////////////////////DICE ROLL\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 #docked-dice-roll-id table, #docked-dice-roll-id th, #docked-dice-roll-id td
 {
@@ -1134,6 +1188,15 @@ a:hover {
 	font-size: 10px;
 	text-align: center;
 	border: none;
+}
+#DiceDivHistory 
+{
+	background-color: #1e282d;
+	margin: 5% 10%;
+	padding: 5% 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 90%;
 }
 
 #docked-dice-roll-id table button
@@ -1192,74 +1255,240 @@ list-style-type: disc;
 	}
 }
 /*////////////////////////////////////////////////////Map\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+#MapTab
+{
+overflow-x: hidden;
+}
 
- /*-------------------------------HEX---------------------------*/
+#Hex-map
+{
+margin : 12.5px 0 0 40px;
+/*45px;*/
+}
+.hexText
+{
+	font-size: 10px;
+	color: #010a13;
+}
 
-.hexagon {
+ /*-------------------------------HEX-EVEN--------------------------*/
+
+.even-hexagon 
+{
 	position: relative;
-	width: 34.64px; 
-	height: 60px;
-	background-color: rgba(255, 255, 255, 0.5);
+	display: inline-block;
+	width: 36.37px; 
+	height: 63px;
+	background-color: rgba(255, 61, 61, 0);
 	border-color: solid 3px aliceblue;
-	margin: 0 17.32px;
+	margin: 0 9.09px;
 	transition-duration: 0.3s;
   }
   
-  .hexagon:before,
-  .hexagon:after {
+  .even-hexagon:before,
+  .even-hexagon:after 
+  {
 	content: "";
 	position: absolute;
+	display: inline-block;
+	width: 0;
+	border-top: 31.5px solid transparent;
+	border-bottom: 31.5px solid transparent;
+	transition-duration: 0.3s;
+  }
+  
+  .even-hexagon:before 
+  {
+	right: 100%;
+	border-right: 18.19px solid  rgba(255, 61, 61, 0);
+	transition-duration: 0.3s;
+  }
+  
+  .even-hexagon:after 
+  {
+	left: 100%;
+	width: 0;
+	border-left: 18.19px solid  rgba(255, 61, 61, 0);
+	transition-duration: 0.3s;
+  }
+
+  /*----------------------------HEX HOVER-EVEN-----------------------------*/
+
+  .even-hexagon:hover 
+  {
+	position: relative;
+	display: inline-block;
+	width: 36.37px; 
+	height: 63px;
+	background-color: rgb(209, 113, 113);
+	border-color: solid 3px aliceblue;
+	margin: 0 9.09px;
+  }
+  
+  .even-hexagon:hover:before,
+  .even-hexagon:hover:after 
+  {
+	content: "";
+	position: absolute;
+	display: inline-block;
+	width: 0;
+	border-top: 31.5px solid transparent;
+	border-bottom: 31.5px solid transparent;
+  }
+  
+  .even-hexagon:hover:before 
+  {
+	right: 100%;
+	border-right: 18.19px solid  rgba(209, 113, 113, 1);
+  }
+  
+  .even-hexagon:hover:after 
+  {
+	left: 100%;
+	width: 0;
+	border-left: 18.19px solid  rgba(209, 113, 113, 1);
+  }
+
+  /*-------------------------------HEX-ODD--------------------------*/
+
+.odd-hexagon {
+	position: relative;
+	display: inline-block;
+	top:31.5px;
+	width: 34.64px; 
+	height: 63px;
+	background-color: rgba(47, 177, 86, 0);
+	border-color: solid 3px aliceblue;
+	margin: 0 8.66px;
+	transition-duration: 0.3s;
+  }
+  
+  .odd-hexagon:before,
+  .odd-hexagon:after {
+	content: "";
+	position: absolute;
+	display: inline-block;
 	width: 0;
 	border-top: 30px solid transparent;
 	border-bottom: 30px solid transparent;
 	transition-duration: 0.3s;
   }
   
-  .hexagon:before {
+  .odd-hexagon:before {
 	right: 100%;
-	border-right: 17.32px solid  rgba(255, 255, 255, 0.5);
+	border-right: 17.32px solid  rgba(47, 177, 86, 0);
 	transition-duration: 0.3s;
   }
   
-  .hexagon:after 
+  .odd-hexagon:after 
   {
 	left: 100%;
 	width: 0;
-	border-left: 17.32px solid  rgba(255, 255, 255, 0.5);
+	border-left: 17.32px solid  rgba(47, 177, 86, 0);
 	transition-duration: 0.3s;
   }
 
-  /*----------------------------HEX HOVER------------------------------*/
+  /*----------------------------HEX HOVER-ODD-----------------------------*/
 
-  .hexagon:hover 
+  .odd-hexagon:hover 
   {
 	position: relative;
+	display: inline-block;
+	top : 31.5px;
 	width: 34.64px; 
-	height: 60px;
-	background-color: rgba(255, 255, 255, 1);
+	height: 63px;
+	background-color: rgb(209, 113, 113);
 	border-color: solid 3px aliceblue;
-	margin: 0 17.32px;
+	margin: 0 8.66px;
   }
   
-  .hexagon:hover:before,
-  .hexagon:hover:after 
+  .odd-hexagon:hover:before,
+  .odd-hexagon:hover:after 
   {
 	content: "";
 	position: absolute;
+	display: inline-block;
 	width: 0;
 	border-top: 30px solid transparent;
 	border-bottom: 30px solid transparent;
   }
   
-  .hexagon:hover:before 
+  .odd-hexagon:hover:before 
   {
 	right: 100%;
-	border-right: 17.32px solid  rgba(255, 255, 255, 1);
+	border-right: 17.32px solid  rgba(209, 113, 113, 1);
   }
   
-  .hexagon:hover:after 
+  .odd-hexagon:hover:after 
   {
 	left: 100%;
 	width: 0;
-	border-left: 17.32px solid  rgba(255, 255, 255, 1);
+	border-left: 17.32px solid  rgba(209, 113, 113, 1);
+  }
+
+   /*-------------------------------CLICKED--------------------------*/
+
+.odd-clicked {
+	position: relative;
+	display: inline-block;
+	top:31.5px;
+	width: 34.64px; 
+	height: 63px;
+	background-color: rgba(255, 0, 0, 1);
+	border-color: solid 3px aliceblue;
+	margin: 0 8.66px;
+	transition-duration: 0.3s;
+  }
+  .even-clicked 
+{
+	position: relative;
+	display: inline-block;
+	width: 36.37px; 
+	height: 63px;
+	background-color: rgba(255, 0, 0, 1);
+	border-color: solid 3px aliceblue;
+	margin: 0 9.09px;
+	transition-duration: 0.3s;
+  }
+  .even-clicked::before, 
+  .odd-clicked::before, 
+  .even-clicked:after,
+  .odd-clicked:after 
+  {
+	content: "";
+	position: absolute;
+	display: inline-block;
+	width: 0;
+	border-top: 30px solid transparent;
+	border-bottom: 30px solid transparent;
+	transition-duration: 0.3s;
+  }
+  
+  .odd-clicked:before 
+  {
+	right: 100%;
+	border-right: 17.32px solid  rgba(255, 0, 0, 1);
+	transition-duration: 0.3s;
+  }
+  
+  .odd-clicked:after  
+  {
+	left: 100%;
+	width: 0;
+	border-left: 17.32px solid  rgba(255, 0, 0, 1);
+	transition-duration: 0.3s;
+  }
+  .even-clicked:before 
+  {
+	right: 100%;
+	border-right: 18.19px solid  rgba(255, 0, 0, 1);
+	transition-duration: 0.3s;
+  }
+  
+  .even-clicked:after 
+  {
+	left: 100%;
+	width: 0;
+	border-left: 18.19px solid  rgba(255, 0, 0, 1);
+	transition-duration: 0.3s;
   }

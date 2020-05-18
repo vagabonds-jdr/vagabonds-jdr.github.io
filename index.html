@@ -58,6 +58,9 @@
 
 			<img id="Map" src="images/map03.png" alt="La carte du monde, une grille definit différents lieux">
 		</article>
+		<div id="Hex-map">
+
+		</div>
 	</div>
 
 
@@ -638,7 +641,7 @@
 	<aside class="side-bar-show" id="side-bar">
 		<button class="side-button" id="side-button" onclick="toggleSideBar()" title="Afficher/Réduire le panneau">></button>
 		<button class="side-menu-toggle-ON" id="tables" onclick="togglePanel('tables')" title="Afficher vos tables favorites">Tables</button>
-		<button class="side-menu-toggle-OFF" id="events" onclick="togglePanel('events')" title="Afficher les évènements">Evènments</button>
+		<button class="side-menu-toggle-OFF" id="events" onclick="togglePanel('events')" title="Afficher les évènements">Evènements</button>
 		<button class="side-menu-toggle-OFF" id="dice-roll" onclick="togglePanel('dice-roll')" title="Afficher le lanceur de dés">Jets de Dés</button>
 		<!--Onglet tables de favoris de la SIDE BAR-->
 		<div class="docked-tables" id="docked-tables-id">
@@ -782,7 +785,14 @@
 			</div>
 		</div>
 		<!--Onglet event de la SIDE BAR-->
-		<div class="docked-events">
+		<div class="docked-events" id="docked-events-id">
+			<div id="currentEvent">
+
+			</div>
+
+			<div id="docked-events">
+
+			</div>
 		</div>
 		<!--Onglet Dice de la SIDE BAR-->
 		<div class="docked-dice-roll" id="docked-dice-roll-id">
@@ -810,9 +820,11 @@
 				</tr>
 			</table>
 			<button onclick="rollTheDice()">Lancer</button>
+			<div id="DiceDivHistory">
 			<table id ="DiceHistory">
 				
-				</tr>
+			</table>
+			</div>
 		</div>
 	</aside>
 	<br />
