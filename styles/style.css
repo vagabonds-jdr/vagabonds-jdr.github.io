@@ -103,9 +103,10 @@ button:disabled {
 	border-style: solid;
 	border-color: red;
 	border-image: linear-gradient(rgba(131,128,150,0), #cdbd91,rgba(131,128,150,0)) 27;
+	border-image-repeat: stretch;
 	border-image-width: 0 1px;
 	margin: 10% 20%;
-	height: 100%;
+	/*height: 100%;*/
 }
 /*---Gestion du Header---*/
 #window button
@@ -481,7 +482,7 @@ summary {
 
 }
 
-.lore-nav a {}
+/*.lore-nav a {}*/
 
 .interaction {
 	/*Location*/
@@ -1224,11 +1225,15 @@ a:hover {
 	background-position: 50% 50% ;
 	background-repeat: no-repeat;
 	background-size: cover;
+	color: #cdbd91;
 }
 
 #currentEvent h3
 {
 	text-align: center;
+	text-transform: uppercase;
+	color: #f0e6d2;
+	letter-spacing: 0.05em;
 }
 
 .quest 
