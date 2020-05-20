@@ -99,10 +99,27 @@ button:disabled {
 
 #window section
 {
-	border: solid 2px red;
+	border-width: none 2px none 2px;
+	border-style: solid;
+	border-color: red;
+	border-image: linear-gradient(rgba(131,128,150,0), #cdbd91,rgba(131,128,150,0)) 27;
+	border-image-width: 0 1px;
 	margin: 10% 20%;
 	height: 100%;
 }
+/*---Gestion du Header---*/
+#window button
+{
+	top:0;
+	right: 0;
+}
+
+#window button:hover
+{
+	top:0;
+	right: 0;
+}
+
 #window header
 {
 	display: block;
@@ -110,6 +127,7 @@ button:disabled {
 	background-position: 50% 50% ;
 	background-repeat: no-repeat;
 	background-size: cover;
+	border-bottom: solid 1px #cdbd91;
 }
 
 #window header h3, #window header h1
@@ -126,6 +144,24 @@ button:disabled {
 #window header h1
 {
 	padding: 8% 10% 0 10%;
+}
+/*---- Contenu de l'article ---*/
+#window article, #window article p
+{
+	margin: 0;
+	padding: 1em 10%;
+
+}
+/*Fond de l'article + espace en bas*/
+#window article
+{
+	background-color: rgba(3, 12, 21, 0.75);
+	padding-bottom: 3em;
+}
+
+#window article p
+{
+	text-align: justify;
 }
 /* ///////////////////////////////////////////Navigation \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 nav {
