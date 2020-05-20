@@ -29,50 +29,57 @@ let archLobby = [0, 0, 0];
 
 ///////////////////////////////////Setup des Events\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var eventsL = [
- {x:'02' , y:'02', nom:'Seul face aux ténèbres', pitch:'Un chasseur de malédictions traverse les marais à la recherche d’un ours maudit', auteur:'Emeric Durdos' , image:'placeholder.jpg' }
+ {x:'02' , y:'02', nom:'Seule face aux ténèbres', pitch:'Un chasseur de malédictions traverse les marais à la recherche d’un ours maudit', text:'Un chasseur de malédictions, large d’épaule et de grande taille, l’armure usée ,traverse les marais à la recherche d’un ours maudit. Sous son armure c’est en réalité une femme.'
++ ' </p><strong>Céleste</strong> : ancienne combattante des servenatifs. Elle vouée à son culte jusqu’à frôler le fanatisme. Elle porte une grande hallebarde et Si elle retire son casque on peut admirer un beau visage de femme mure , fin, bardé de cicatrices et belle chevelure rousse coiffée à la manière habituelle des servenatifs : les cheveux du sommet de son crâne sont attachés en queue de cheval tandis que le reste est rasé.</p>' 
++ ' <p><strong>Ours maudit</strong> : Ce dernier attaquerait les villageois de la région. Cet ours était sacré et c’est surement ce qui l’a empêché de mourir à cause de la malédiction. Il est désormais difforme, deux mâchoires. Il vit dans  une grotte sur la paroie d’une cuvette légèrement inondée.</p>'
++ ClasseCombat(8), auteur:'Emeric Durdos' , image:'placeholder.jpg' }
 
-, {x:'03' , y:'03', nom:'Au bout du chemin', pitch:'La silhouette d’un cavalier apparaît à l’horizon', auteur:'Emeric Durdos' , image:'artem-demura-vulture.jpg' }
+, {x:'03' , y:'03', nom:'Au bout du chemin', pitch:'La silhouette d’un cavalier apparaît à l’horizon', text:'La silhouette d’un cavalier apparaît à l’horizon, mais lorsqu’il approche, c’est en fait un monstre : les jambes du cavalier se sont fusionnés avec le corps de son cheval décapité tandis que le cavalier, couvert de sang a vu sa tête remplacée par celle du cheval. Cet amalgame continue d’avancer en titubant, le bruit des sabots donnant vie à cette vision cauchemardesque. Si les joueurs ne parlent pas en sa présence,  il avancera sans se soucier d’eux. En cas de combat, chaque blessures donnera lieu à un test de mental pour éviter d’être maudit. (la difficulté augmentant à chaque blessures)' + ClasseCombat(6), auteur:'Emeric Durdos' , image:'artem-demura-vulture.jpg' }
 
-, {x:'04' , y:'02', nom:'La balance inaltérable', pitch:'Dans les archives se trouve un parchemin crucial', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'04' , y:'02', nom:'La balance inaltérable', pitch:'Dans les archives se trouve un parchemin crucial', text:'Dans les archives, un parchemin indique qu’une malédiction est la source d’une chute irrémédiable vers la folie et le mal. Seule une magie de protection divine suffisamment puissante peut en venir à bout. Aucun humain n’en est capable.' + '<p>Moine corrompu</p>' + ClasseCombat(1), auteur:'Emeric Durdos' , image:'Ashina_Outskirts_01.png'}
 
-, {x:'08' , y:'93', nom:'L’auberge des Vaillances', pitch:'<em>Bravoure</em> propose un concours de boisson au groupe. ça tourne mal', auteur:'Emeric Durdos' , image:'placeholder.jpg' }
-, {x:'08' , y:'98', nom:'L\'épreuve du pelerin pt.2', pitch:'Sur la plage, adossé à une statue se dresse le squelette d\'un moine qui ne semble pas avoir de jambes', auteur:'Emeric Durdos' , image:'artem-demura-ddsds.jpg'}
+, {x:'08' , y:'93', nom:'L’auberge des Vaillances', pitch:'<em>Bravoure</em> propose un concours de boisson au groupe. ça tourne mal', text:'L’auberge des Vaillances : cet établissement accueillant et chaleureux ne rassemble pas énormément de clients. L’un d’eux, Bravoure propose un concours de boisson au groupe. ça tourne mal :  Les joueurs se font détrousser ? capturer ? <ul> <li> <em>Bravoure</em> : Cet homme  d\'âge mûr est un chef de gang qui saoule les voyageurs pour abuser d’eux. La tenancière de l’auberge qui est sa petite soeur reçoit une partie du butin lorsqu’elle l’aide pour ses exactions.</li>' + ClasseCombat(3) +' <li><em>Pipeis</em> : Gérante de l’auberge des Vaillances. elle aime son auberge plus que tout et passe beaucoup de temps à s’en occuper. </li> </ul>', auteur:'Emeric Durdos' , image:'placeholder.jpg' }
+, {x:'08' , y:'92', nom:'Les archives', pitch:'Dans le palais se trouve des archives qui contiennent des parchemins', text:'Dans le palais se trouve des <strong>archives</strong> qui contiennent des parchemins évoquant des grottes dans les montagnes.', auteur:'Emeric Durdos' , image:'placeholder.jpg' }
+, {x:'08' , y:'98', nom:'L\'épreuve du pelerin pt.2', pitch:'Sur la plage, adossé à une statue se dresse le squelette d\'un moine qui ne semble pas avoir de jambes', text:'Si un personnage traverse la plage en longueur avec le handicap du pèlerin, il aperçoit (il est le seul à pouvoir le voir) alors un cadavre de moine (les jambes n’ont pas d’os s’il vérifie) portant une amulette. Cette dernière confère le trait “protection divine” si le personnage ne le possède pas, sinon il réduit de 1 le nombre de D6 à mettre sur le statut de plus il acquiert la spécialité “voyage”.De plus, il récupère l’usage de ses jambes.', auteur:'Emeric Durdos' , image:'artem-demura-ddsds.jpg'}
 
 , {x:'09' , y:'97', nom:'L\'épreuve du pelerin pt.1', pitch:'Une statue se dresse sur l’avancée, couverte de neige, la silhouette encapuchonnée a vu son le visage se faire éroder par le vent', auteur:'Emeric Durdos' , image:'artem-demura-the-torch-of-the-blind.jpg'}
-, {x:'09' , y:'99', nom:'Au nord', pitch:'Un homme blessé et malade boite vers le nord espérant trouver un refuge', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'09' , y:'99', nom:'Au nord', pitch:'Un homme blessé et malade boite vers le nord espérant trouver un refuge', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
 , {x:'09' , y:'99', nom:'A l’est', pitch:'Une petite cabane de bois est visible, elle est en mauvais état et pleine de poussière', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
-, {x:'09' , y:'99', nom:'Au sud', pitch:'Un petit groupe de malandrins avec des armes de fortunes errent', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'09' , y:'99', nom:'Au sud', pitch:'Un petit groupe de malandrins avec des armes de fortunes errent', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
 , {x:'09' , y:'02', nom:'Des offrandes inattendues', pitch:'Des offrandes ont été faites dans le temple : un grand plateau contenant nourriture et encens se trouve au pied de la croix. L’encens est encore légèrement chaud', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
 
-, {x:'10' , y:'02', nom:'L’organisation des lieux', pitch:'Quelques détails sur les personnes qui vivent ici', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
-, {x:'10' , y:'02', nom:'La nonne maudite', pitch:'Rentrée du sud,elle ne dit plus un mot, elle ne dors plus et semble fuir.', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
-, {x:'10' , y:'02', nom:'L’agent infiltré', pitch:'Un malade atteint par le <strong>courroux ardent</strong> est allongé dans l’infirmerie', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'10' , y:'02', nom:'L’organisation des lieux', pitch:'Quelques détails sur les personnes qui vivent ici', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'10' , y:'02', nom:'La nonne maudite', pitch:'Rentrée du sud,elle ne dit plus un mot, elle ne dors plus et semble fuir.', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'10' , y:'02', nom:'L’agent infiltré', pitch:'Un malade atteint par le <strong>courroux ardent</strong> est allongé dans l’infirmerie', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
 
-, {x:'12' , y:'90', nom:'L’épreuve du pelerin', pitch:'Une silhouette encapuchonnée se détache à travers la brume. Portant une lanterne, elle est assise sur un rocher et regarde, immobile, l’horizon', auteur:'Emeric Durdos' , image:'artem-demura-tishina.jpg'}
-, {x:'12' , y:'96', nom:'La garde de Foresbloue', pitch:'Ici les gardes sont fidèles à leur poste', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
-, {x:'12' , y:'98', nom:'Au sud', pitch:'Un miséreux se voit refusé l\'entrée à Viprince', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
-, {x:'12' , y:'00', nom:'Les risques des bas quartiers', pitch:'Le vol est loin d\'être le danger ', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'12' , y:'90', nom:'L’épreuve du pelerin', pitch:'Une silhouette encapuchonnée se détache à travers la brume. Portant une lanterne, elle est assise sur un rocher et regarde, immobile, l’horizon', text:'pitch', auteur:'Emeric Durdos' , image:'artem-demura-tishina.jpg'}
+, {x:'12' , y:'96', nom:'La garde de Foresbloue', pitch:'Ici les gardes sont fidèles à leur poste', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'12' , y:'98', nom:'Au sud', pitch:'Un miséreux se voit refusé l\'entrée à Viprince', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'12' , y:'00', nom:'Les risques des bas quartiers', pitch:'Le vol est loin d\'être le plus grand danger ', text:'pitch', auteur:'Emeric Durdos' , image:'pasted-image-0.png'}
 
-, {x:'13' , y:'99', nom:'Un royaume en perdition', pitch:'Le roi est mort dans le secret et desormais ses fils, dévorés par l’avarice, se disputent la succession', auteur:'Emeric Durdos' , image:'throne.jpg'}
+, {x:'13' , y:'99', nom:'Un royaume en perdition', pitch:'Le roi est mort dans le secret et desormais ses fils, dévorés par l’avarice, se disputent la succession', text:'pitch', auteur:'Emeric Durdos' , image:'throne.jpg'}
 
-, {x:'14' , y:'94', nom:'Une famille en danger', pitch:'Un cri de femme provient d’une maison au bord de la route, devant un cheval est attaché', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
-, {x:'14' , y:'95', nom:'L\'affreux garde-chasse', pitch:'Un garde-chasse purulent aux proportions grotesque ramasse ses collets', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
-, {x:'14' , y:'99', nom:'Perdus d\'avance', pitch:'Si vos joueurs commencent ici', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'14' , y:'94', nom:'Une famille en danger', pitch:'Un cri de femme provient d’une maison au bord de la route, devant un cheval est attaché', text:'pitch', auteur:'Emeric Durdos' , image:'artem-demura-srub-cover.jpg'}
+, {x:'14' , y:'95', nom:'L\'affreux garde-chasse', pitch:'Un garde-chasse purulent aux proportions grotesque ramasse ses collets', text:'pitch', auteur:'Emeric Durdos' , image:'artem-demura-wod-cover-v2.jpg'}
+, {x:'14' , y:'99', nom:'Perdus d\'avance', pitch:'Si vos joueurs commencent ici', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
 
-, {x:'15' , y:'88', nom:'Embuscade sur le pont !', pitch:'Ils sont attaqués par des bandits', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
-, {x:'15' , y:'90', nom:'Un bon repas', pitch:'Un boucher du marché noir propose de la viande', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
-, {x:'15' , y:'94', nom:'Le voyageur rouillé', pitch:'Un noble couvert d’une armure rouillée complète qui parcourt la région', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
-, {x:'15' , y:'95', nom:'Rencontre nocturne', pitch:'Si le garde-chasse est toujours en vie (1495), il va venir détrousser les voyageurs pendant la nuit.', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'15' , y:'88', nom:'Embuscade sur le pont !', pitch:'Ils sont attaqués par des bandits', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'15' , y:'90', nom:'Un bon repas', pitch:'Un boucher du marché noir propose de la viande', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'15' , y:'94', nom:'Le voyageur rouillé', pitch:'Un noble couvert d’une armure rouillée complète qui parcourt la région', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'15' , y:'95', nom:'Rencontre nocturne', pitch:'Si le garde-chasse est toujours en vie (1495), il va venir détrousser les voyageurs pendant la nuit.', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
 
-, {x:'18' , y:'88', nom:'Un délit subjectif', pitch:'Quatres individus volent les cultures, sont ils affamés ? pillards ?', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'18' , y:'88', nom:'Un délit subjectif', pitch:'Quatres individus volent les cultures, sont ils affamés ? pillards ?', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+, {x:'18' , y:'89', nom:'Le loup blessé', pitch:'A l’est : les restes d’un campement sont visibles, les braises sont encore chaudes', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
+
+, {x:'19' , y:'88', nom:'Au sud-ouest', pitch:'Dernier survivant de Grivière Valdémar traque les bandits qui ont détruit son village', text:'pitch', auteur:'Emeric Durdos' , image:'placeholder.jpg'}
 
 				
 ];
 var eventsG = [
-{ nom: 'Les maraudeurs', pitch: 'Des cavaliers attaquent un village (vue de loin)', auteur:'Emeric Durdos' , image:'artem-demura-baba-v-lodke6.jpg' },
-{ nom: 'EventGénérique2', pitch: 'test2', auteur:'Emeric Durdos' , image:'artem-demura-baba-v-lodke6.jpg' }
-,{ nom: 'Event Générique 3', pitch: 'test3', auteur:'Emeric Durdos' , image:'artem-demura-baba-v-lodke6.jpg' }
-,{ nom: 'Event Générique 4', pitch: 'test4', auteur:'Emeric Durdos' , image:'artem-demura-baba-v-lodke6.jpg' }
+{ nom: 'Les maraudeurs', pitch: 'Des cavaliers attaquent un village (vue de loin)', text:'pitch', auteur:'Emeric Durdos' , image:'zhihui-su-2.jpg' },
+{ nom: 'Event Générique 2', pitch: 'Ces events servent à completer les zones moins écrites', text:'pitch', auteur:'Emeric Durdos' , image:'artem-demura-baba-v-lodke6.jpg' }
+,{ nom: 'Event Générique 3', pitch: 'test3', auteur:'Emeric Durdos' , text:'pitch' ,image:'artem-demura-baba-v-lodke6.jpg' }
+,{ nom: 'Event Générique 4', pitch: 'test4', auteur:'Emeric Durdos' , text:'pitch' ,image:'artem-demura-baba-v-lodke6.jpg' }
 
 				];
 
@@ -527,6 +534,7 @@ function generateMap(offsetx, offsety, x, y)
 	}
 	document.getElementById("Hex-map").innerHTML = html;
 }
+
 function generateMapArray (offsetx, offsety, x, y)
 {
 	vert = offsety;
@@ -599,6 +607,8 @@ function generateMapArray (offsetx, offsety, x, y)
 
 
 		//08-xx
+		['08','92','Palais d’argent','<p> La haute tour du palais du Clan <strong>Shinrai</strong> rayonne sur toute l’île. Construit sur la plus haute colline de l’île pour être le témoin de puissance du clan face aux colons, toute la ville en fait le tour.</p>' ],
+
 		['08','93','Argençier (Sud)','<p> La ville de d’Argençier est organisée autour de la colline.</p>'+'<p> Lieux notables :</p>' + '<p> - <strong>L’auberge des Vaillances : </strong> cet établissement accueillant et chaleureux ne rassemble pas énormément de clients.</p>' ],
 		
 		['08','98','La plage de Chesperie','<p>Il fait froid, l’eau est glacée, de fins morceau de glace sont ballotés par les vagues. Le paysage lunaire est enveloppé d’une brume blanche d’où s\'échappent d’immenses statues sombres de vieilles divinités oubliées depuis plusieurs siècles.</p>'],
@@ -616,7 +626,7 @@ function generateMapArray (offsetx, offsety, x, y)
 		
 		['09','99','La toundra','<p>Ce sont des plaines couvertes de d’une légère couche de glace, il fait extrêmement froid. Quelques rares arbres parsèment le paysage, sans eux, ce lieu aurait l’air d’un véritable de désert de glace mortel.</p>'],
 		
-		['09','02','Petit temple isolé ( Forêt)','En traversant la forêt, les personnages tombent sur un petit <strong>temple isolé </strong> et très modeste. Les 4 colonnes soutenant le toit de tuiles sont enlacées dans un lierre luxuriant sur lesquels des petites fleurs rosées ont fait apparition. Dans l’obscurité de la toiture une <strong>croix de pierre</strong> se dresse, son allure sinistre tranche étonnamment avec son cadre paradisiaque. La pierre brute et rugueuse évoque celle utilisée pour faire les tombes. Des <strong>offrandes</strong> ont été faites dans le temple : un <strong>grand plateau</strong> contenant nourriture et encens se trouve au pied de la croix. L’encens est encore légèrement chaud.' ],
+		['09','02','Petit temple isolé (Forêt)','En traversant la forêt, les personnages tombent sur un petit <strong>temple isolé </strong> et très modeste. Les 4 colonnes soutenant le toit de tuiles sont enlacées dans un lierre luxuriant sur lesquels des petites fleurs rosées ont fait apparition. Dans l’obscurité de la toiture une <strong>croix de pierre</strong> se dresse, son allure sinistre tranche étonnamment avec son cadre paradisiaque. La pierre brute et rugueuse évoque celle utilisée pour faire les tombes.' ],
 		
 		
 		//10-xx
@@ -666,10 +676,9 @@ function generateMapArray (offsetx, offsety, x, y)
 		['13','98','Rempart nord de Viprince (Campagne) ','<p>Au nord les rizières commencent à apparaître.</p>' 
 		+ '<p>Un campement de miséreux se trouve devant la ville</p>'],
 		
-		['13','99','Viprince (palais royal)','<p>Le roi est mort, la famille royale a choisi de ne rien révéler.  La reine a souhaité que le roi soit laissé sur son trône à coté duquel elle peut siéger alors qu’elle se laisse mourir de chagrin.</p>'
-		+'<p>Ses fils dévorés par l’avarice, se disputent la succession.</p>'
-		+'<p>La garde royale a reçu l’ordre de ne laisser filtrer aucun individu ou objet.</p>'
-		+'<p>Les six gardes d’honneur du roi, ayant failli à leur mission de le guérir, se sont donnés la mort. Leurs corps, percés d’une lame, sont toujours assis face à l’horizon. Leur service continuant auprès de leur maître dans l’au-delà. On peut en trouver un par tour du palais.</p>' ],
+		['13','99','Viprince (palais royal)','<p>Cette grande forteresse n\'est plus que la silhouette d\'un royaume autrefois puissant</p>'
+		+'<p>La garde royale ne laisse filtrer aucun individu ou objet.</p>'
+		+'<p>L\'interieur du palais est délabré et sombre. Les peintures autrefois riches de couleurs et éclatantes ont été ternies par la poussière.</p>' ],
 		
 		['13','00','Viprince (port royal)',' ' ],
 
@@ -777,12 +786,16 @@ function displayHex (x,y)
 		lastClickedHex.setAttribute('class', 'odd-clicked');
 	}
 	tableEvents = [];
+
 	//On récupère tout les events locaux
 	for (let i = 0; i<eventsL.length; i++)
 	{
 		//console.log ('test events');
 		if ((eventsL[i]['x'] == x) && (eventsL[i]['y'] == y))
 		{
+			eventsL[i]['status'] = 'L';
+			eventsL[i]['id'] = i;
+
 			tableEvents.push(eventsL[i]);
 		}
 
@@ -798,9 +811,12 @@ function displayHex (x,y)
 		}
 		//tant qu'on l'as déjà assigné, on relance
 		while (eventG_Added.includes(newRand))
+
 		eventG_Added.push(newRand);
+		eventsG[newRand]['status'] = 'G';
+		eventsG[newRand]['id'] = newRand;
 		tableEvents.push(eventsG[newRand]);
-		console.log(newRand);
+		//console.log(eventsG[newRand]);
 	}
 
 	let newHtml = '<div> <h3>' + gridMap[y][x]['nom'] + '</h3> <p>' + gridMap[y][x]['descHex'] + '</p> </div>';
@@ -808,13 +824,56 @@ function displayHex (x,y)
 	//on fait les petits encarts pour les quêtes
 	for (let i = 0; i<tableEvents.length; i++)
 	{
-		 newHtml += '<div class="quest" style= "background-image: url(images/events/'+ tableEvents[i]['image']+')" > <h3>'+ tableEvents[i]['nom'] + '</h3><p>' + tableEvents[i]['pitch'] + '...</p></div>';
+		 newHtml += '<div class="quest"  onclick=\"openEvent(' + tableEvents[i]['id'] + ', \'' + tableEvents[i]['status'] + '\')\" style= "background-image: url(images/events/'+ tableEvents[i]['image']+')" > <h3>'+ tableEvents[i]['nom'] + '</h3><p>' + tableEvents[i]['pitch'] + '...</p></div>';
 	}
 	document.getElementById("currentEvent").innerHTML = newHtml;
 
 	document.getElementById('events').click();
 }
 
+	function openEvent(id, statut)
+	{
+		switch (statut)
+		{
+			case'L':
+				console.log(eventsL[id]['nom']);
+				displayWindowEvent(eventsL[id]);
+				break;
+
+			case'G':
+				console.log(eventsG[id]['nom']);
+				displayWindowEvent(eventsG[id]);
+				break;
+
+			default:
+				console.log('erreur');
+		}
+	}
+
+
+
+	function displayWindowEvent(evObj)
+	{
+		let window = document.getElementById("window");
+		window.style.display = 'block';
+		document.getElementById("windowTitle").innerHTML = evObj['nom'];
+		document.getElementById("windowSub").innerHTML = "Par " + evObj['auteur'];
+		document.getElementById("windowBody").innerHTML = evObj['text'];
+		document.getElementById("windowHeader").style.backgroundImage  = "url('images/events/" + evObj['image'] +"')";
+
+	}
+
+	function closeWindow()
+	{
+		let window = document.getElementById("window");
+		window.style.display = 'none';
+	}
+
+
+	function ClasseCombat(val)
+	{
+		return '<table> <tr> <th> Classe armure + arme </th> <td>' + val + '</td> </tr> </table>'
+	}
 ////////////////////////////////////////ONGLETS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 function openPage(pageName, elmnt, color) {
 	// Hide all elements with class="mainscreen" by default */
