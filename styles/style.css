@@ -111,15 +111,17 @@ button:disabled {
 /*---Gestion du Header---*/
 #window button
 {
-	top:0;
-	right: 0;
+	top:5%;
+	right: 5%;
+	position: fixed;
+	width: 3em;
 }
 
-#window button:hover
+/*#window button:hover
 {
-	top:0;
+	top:10%;
 	right: 0;
-}
+}*/
 
 #window header
 {

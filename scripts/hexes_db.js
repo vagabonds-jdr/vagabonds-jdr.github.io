@@ -287,7 +287,7 @@ newHexes = [
 
     ['16','89'
             ,'Valenche'
-            ,'<p>Petit village situé le long du *nom de fleuve*, il a longtemps joui de sa position éloignée pour développer la chasse. Désormais victime de pillages réguliers, les habitants ont soit fuis soit abandonner toute idée de se battre.</p>' 
+            ,'<p>Petit village situé le long du *nom de fleuve*, il a longtemps joui de sa position éloignée pour développer la chasse. Désormais victime de pillages réguliers, les habitants ont soit fuis soit abandonné toute volonté de se battre.</p>' 
             ],
 
 

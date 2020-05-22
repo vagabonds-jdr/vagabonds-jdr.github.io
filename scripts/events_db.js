@@ -43,14 +43,14 @@ var eventsL = [
             + ClasseCombat(3,'Bravoure') 
             +' <li><em>Pipeis</em> : Gérante de l’auberge des Vaillances. elle aime son auberge plus que tout et passe beaucoup de temps à s’en occuper. </li> </ul>', 
             auteur:'Emeric Durdos' , 
-            image:'placeholder.jpg' }
+            image:'klaus-pillon-baseofoperations-klauspillon-final-label.jpg' }
    
    , {x:'08' , y:'92', 
             nom:'Les archives', 
             pitch:'Dans le palais se trouve des archives qui contiennent des parchemins', 
             text:'Dans le palais se trouve des <strong>archives</strong> qui contiennent des parchemins évoquant des grottes dans les montagnes.', 
             auteur:'Emeric Durdos' , 
-            image:'placeholder.jpg' }
+            image:'andreas-rocha-oldbookshop02.jpg' }
    
    , {x:'08' , y:'92', 
             nom:'Un bon départ', 
@@ -136,7 +136,7 @@ var eventsL = [
             + '<li><em>Jardins</em> : on y trouve le potager qui commence a s’épuiser ainsi qu’un carrés d\'herbes médicinales.</li>'
             + '</ul>', 
             auteur:'Emeric Durdos' , 
-            image:'placeholder.jpg'}
+            image:'pierre-etienne-travers-old-monastery-by-pe-travers-d958fai-1.jpg'}
    
    , {x:'10' , y:'02', 
             nom:'La nonne maudite', 
@@ -261,7 +261,7 @@ var eventsL = [
             text:'Un garde-chasse purulent aux proportions grotesque ramasse ses collets, il rentre dans sa tente. Il accueille les voyageurs avec un sourire de façade tout en leur donnant des titres tels que “seigneur” ou “maître”.'
             + ClasseCombat(5,'Wilfrid, le garde-chasse purulent'), 
             auteur:'Emeric Durdos' , 
-            image:'artem-demura-wod-cover-v2.jpg'}
+            image:'reiko-gross-swamp-of-sadness2.jpg'}
    
    , {x:'14' , y:'99', 
             nom:'Perdus d\'avance', 
